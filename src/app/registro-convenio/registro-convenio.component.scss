@@ -1,0 +1,22 @@
+mat-card {
+    background-color: #f2f2f2; 
+    padding: 40px; 
+    margin: 40px auto; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+    max-width: 1200px; 
+    display: block; 
+  }
+
+  mat-form-field {
+    background-color: transparent;
+    margin-bottom: 20px; 
+  }
+  .boton-derecha {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 10px; 
+  }
+  .titulo-formulario {
+    color: #90282c; 
+    margin-bottom: 40px; 
+  }

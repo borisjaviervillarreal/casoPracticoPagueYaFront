@@ -1,0 +1,190 @@
+<mat-card>
+  <h2 class="titulo-formulario">Generar Solicitud de Convenio de Pago</h2>
+  <form [formGroup]="convenioForm">
+    <div formGroupName="cliente">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombres</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Nombres"
+              formControlName="Nombres"
+              required
+            />
+            <mat-error *ngIf="convenioForm.get('cliente.Nombres')?.hasError('required')">Nombres es un campo requerido.</mat-error>
+          </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Apellidos"
+          formControlName="Apellidos"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.Apellidos')?.hasError('required')">Apellidos es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cédula</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Nro Cédula"
+          formControlName="Cedula"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.Cedula')?.hasError('required')">Cédula es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Direccion Casa</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Direccion Casa"
+          formControlName="DireccionCasa"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.DireccionCasa')?.hasError('required')">Direccion Casa es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Direccion Trabajo</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Direccion Trabajo"
+          formControlName="DireccionTrabajo"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.DireccionTrabajo')?.hasError('required')">Direccion Trabajo Casa es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Personal</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Email Personal"
+          formControlName="EmailPersonal"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.EmailPersonal')?.hasError('required')">Email Personal Casa es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Trabajo</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Email Trabajo"
+          formControlName="EmailTrabajo"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.EmailTrabajo')?.hasError('required')">Email Trabajo Casa es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono Celular</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Teléfono Celular"
+          formControlName="TelefonoCelular"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.TelefonoCelular')?.hasError('required')">Telefono Celular es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono Casa</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Teléfono Casa"
+          formControlName="TelefonoCasa"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.TelefonoCasa')?.hasError('required')">Telefono Casa es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono Trabajo</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Teléfono Trabajo"
+          formControlName="TelefonoOficina"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('cliente.TelefonoCasa')?.hasError('required')">Telefono Oficina es un campo requerido.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div formGroupName="intencionPago">
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Deuda</mat-label>
+        <mat-select formControlName="CodTipoDeuda" required>
+          <mat-option
+            *ngFor="let tipoDeuda of tiposDeuda"
+            [value]="tipoDeuda.codTipoDeuda"
+          >
+            {{ tipoDeuda.descripcion }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="convenioForm.get('intencionPago.CodTipoDeuda')?.hasError('required')">Tipo Deuda es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Monto Intención Pago</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese Monto Intención Pago"
+          formControlName="MontoIntencionPago"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('intencionPago.MontoIntencionPago')?.hasError('required')">Monto Intencion Pago es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Contacto</mat-label>
+        <mat-select formControlName="TelefonoContactabilidad" required>
+          <mat-option
+            *ngFor="let tipoContacto of tiposContacto"
+            [value]="tipoContacto.codTipoContacto"
+          >
+            {{ tipoContacto.descripcion }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="convenioForm.get('intencionPago.TelefonoContactabilidad')?.hasError('required')">Tipo Contacto es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Horario desde Contacto</mat-label>
+        <input
+          matInput
+          placeholder="Horario desde para contacto"
+          formControlName="HorarioDesde"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('intencionPago.HorarioDesde')?.hasError('required')">Horario Desde es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Horario hasta Contacto</mat-label>
+        <input
+          matInput
+          placeholder="Horario hasta para contacto"
+          formControlName="HorarioHasta"
+          required
+        />
+        <mat-error *ngIf="convenioForm.get('intencionPago.HorarioHasta')?.hasError('required')">Horario Hasta es un campo requerido.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha Intención Pago</mat-label>
+        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="FechaIntencion" placeholder="Ingrese la fecha de intención de pago" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="convenioForm.get('intencionPago.HorarioHasta')?.hasError('required')">Fecha Intención Pago es un campo requerido.</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="boton-derecha">
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Generar Solicitud de Convenio
+    </button>
+  </div>
+</mat-card>
